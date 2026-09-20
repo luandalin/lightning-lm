@@ -37,8 +37,10 @@ void PointCloudPreprocess::Process(const livox_ros_driver2::msg::CustomMsg::Shar
     cloud_out_.clear();
     cloud_full_.clear();
 
-    int plsize = msg->point_num;
-
+    int plsize = msg->point_num; //! point_num == 0（驱动发空帧/包损坏）则index=-1，导致定位或建图进程直接挂掉
+    //todo dalin add:
+    const size_t n = std::min<size_t>(msg->points.size(), msg->point_num); if (n == 0) return;
+                                    
     cloud_out_.reserve(plsize);
     cloud_full_.resize(plsize);
 

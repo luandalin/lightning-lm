@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
                                   usleep(1000);
                                   return true;
                               })
-        .AddLivoxCloudHandle("/livox/lidar",
+        .AddLivoxCloudHandle("/livox/lidar",//! dalin remark:固定死的字符串，不支持换话题
                              [&loc](livox_ros_driver2::msg::CustomMsg::SharedPtr cloud) {
                                  loc.ProcessLivoxLidarMsg(cloud);
                                  usleep(1000);

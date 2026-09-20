@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
                                   slam.ProcessLidar(msg);
                                   return true;
                               })
-        /// livox 的处理
+        /// livox 的处理 dalin remark : "/livox/lidar" 离线用的是固定死的字符串，在线却是读配置文件，换话题后此处不响应 
         .AddLivoxCloudHandle("/livox/lidar",
                              [&slam](livox_ros_driver2::msg::CustomMsg::SharedPtr cloud) {
                                  slam.ProcessLidar(cloud);

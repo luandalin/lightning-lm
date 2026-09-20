@@ -7,5 +7,9 @@
 **/.vscode/
 bin
 
+compile_commands.json
+*thirdparty
+build_log.txt
+
 **cmake-build-debug**
 **cmake-build-release**

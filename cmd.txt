@@ -1,0 +1,13 @@
+
+colcon build \
+  --parallel-workers 1 \
+  --cmake-args -DCMAKE_BUILD_TYPE=Release \
+  --make-args -j1  && send ' bingo ! '
+
+
+MAKEFLAGS="-j1" colcon build \
+  --parallel-workers 2 \
+  --cmake-args -DCMAKE_BUILD_TYPE=Release \
+  && notify-send "编译完成" "lightning-lm 编译成功！"
+
+MAKEFLAGS="-j1" colcon build --parallel-workers 2 --cmake-args -DCMAKE_BUILD_TYPE=Release 2>&1 | tee build_log.txt

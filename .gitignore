@@ -8,7 +8,8 @@
 bin
 
 compile_commands.json
-*thirdparty
+thirdparty/Pangolin-0.9.3/
+/thirdparty/livox_ros_driver/livox_ros_driver_改进.md
 build_log.txt
 
 **cmake-build-debug**

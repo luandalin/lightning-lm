@@ -1,5 +1,5 @@
 # Livox costom pointcloud format.
-//! offset_time是 uint32 纳秒：最大 4.29 s 会回绕（当前 100 ms 帧无碍，多帧累积时要注意）。
+# offset_time是 uint32 纳秒：最大 4.29 s 会回绕（当前 100 ms 帧无碍，多帧累积时要注意）。
 uint32 offset_time      # offset time relative to the base time 
 float32 x               # X axis, unit:m
 float32 y               # Y axis, unit:m

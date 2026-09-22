@@ -89,9 +89,9 @@ class RosbagIO {
 
     RosbagIO &AddImuHandle(const std::string &topic_name, ImuHandle f) {
         return AddHandle(topic_name, [f, this](const MsgType &m) -> bool {
-            auto msg = std::make_shared<sensor_msgs::msg::Imu>();
-            rclcpp::SerializedMessage data(*m->serialized_data);
-            seri_imu_.deserialize_message(&data, msg.get());
+            auto msg = std::make_shared<sensor_msgs::msg::Imu>();           //~ 创建一个标准的 ROS2 Imu 消息智能指针 msg
+            rclcpp::SerializedMessage data(*m->serialized_data);            //~ 将 rosbag 读出的原始字节 m->serialized_data 包装成 ROS2 的 SerializedMessage 对象 data
+            seri_imu_.deserialize_message(&data, msg.get());                //~ 执行反序列化,把二进制字节流“翻译”回结构化的 Imu 对象
 
             IMUPtr imu = std::make_shared<IMU>();
             imu->timestamp = ToSec(msg->header.stamp);

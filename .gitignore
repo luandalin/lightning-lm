@@ -7,6 +7,7 @@
 **/.vscode/
 bin
 
+lightning-阅读笔记.md
 compile_commands.json
 thirdparty/Pangolin-0.9.3/
 /thirdparty/livox_ros_driver/livox_ros_driver_改进.md
